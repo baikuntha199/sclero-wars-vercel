@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07101c">
+  <meta name="description" content="A neurologist's MS strategy game: random patients, a complete DMT arsenal, evidence-informed outcome draws and changing financial circumstances.">
+  <title>Sclero-Wars | Every Decision Matters</title>
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./">SCLERO<span>—</span>WARS</a>
+    <nav aria-label="Game controls"><button id="motion" aria-pressed="true">Motion on</button><button id="reset">New patient</button></nav>
+  </header>
+  <main id="app"></main>
+  <footer id="methodology">
+    <strong>Educational simulation for neurologists.</strong>
+    <p>Fictional adults with confirmed MS. Cohort-based draws and game scores are not validated patient predictions or prescribing recommendations. Current local approval, the full label, individual assessment and shared decisions remain essential. Evidence reviewed 13 September 2026.</p>
+    <details><summary>Probability assumptions & scoring</summary>
+      <p>A campaign follows one randomly generated patient through four six-month reviews. Demographics, EDSS, duration, laboratory flags and finances are synthetic teaching distributions, not epidemiological estimates.</p>
+      <p>Clinical probabilities are derived from cited trial observations. ARR becomes P(≥1 event) = 1 − exp(−ARR × 0.5). A trial proportion p over T years becomes 1 − (1 − p)^(0.5/T), assuming constant hazard. Median or minimum follow-up is only a rough proxy for variable exposure. Initiation events use their original short window and are not annualized. Numbers from different trials cannot establish a ranking of drugs.</p>
+      <p>Clinical probability multipliers for age, EDSS, duration or laboratory abnormalities are not invented. Those features influence the teaching decision score and applicability warnings. Only the first disability-worsening event is modeled; recovery and later progression are not quantified. The illustrated EDSS increment is a game approximation and does not reproduce every trial's progression definition. Missing endpoints are not zero-risk outcomes.</p>
+      <p>Events are sampled independently. The model does not quantify PML, malignancy, death, pregnancy outcomes, rebound, carry-over effects or loss of efficacy during a treatment gap. Clinical draws describe the interval before a newly reported financial interruption. No adverse event draw does not imply safety.</p>
+      <p>Decision quality: clinical fit 0–40, safety 0–25, affordability 0–20, patient priorities 0–5 and follow-up 0–10. Chance deducts 6 for relapse, 6 for first disability worsening, 3/5/8 according to the selected complication category, 4 for financial interruption and 2 for a missed review, capped at 20 per review. These weights are teaching assumptions, not sampled clinical severity grades. Patient-priority points include route preference and mobility support at EDSS ≥4. A major unsafe response caps that review at 35. Win with average ≥70 and no major response errors. Chance is shown separately from decision quality.</p>
+    </details>
+    <details><summary>Economic and follow-up uncertainty</summary>
+      <p>All prices and grants are fictional resource credits, not rupees or real drug costs. A six-month plan spends half the listed annual DMT credits plus any support-plan and continuing-monitoring costs. Finite-course drug costs are spread across reviews for budgeting; the dose dossier gives the actual course timing.</p>
+      <p>At Standard intensity, invented annual job-loss probabilities are 8% for salaried, 20% for contract and 15% for self-employed scenarios; 0% when already not employed. Annual household-expense and missed-review assumptions are 12% and 8%. Each converts to a six-month probability using constant hazard. Calm multiplies annual life-event probabilities by 0.5; Volatile by 1.5. Clinical probabilities are unchanged.</p>
+      <p>An income loss reduces annual resources by 45%, or 25% with the work-support reserve. A household bill removes 16 annual-equivalent credits at that review. Annual funding-interruption risk is 4% plus 0.8 × the funding-gap/available-funds ratio, multiplied by support and intensity factors and capped at 80%. It is not estimated from an MS cohort. A shock at review can increase this chance.</p>
+      <p>The access navigator costs 6 credits per review, secures a fictional 10-credit grant only when the generated patient is eligible and multiplies missed-review/interruption risks by 0.55. Work and transport support costs 6 credits, has no grant, cushions income loss and multiplies those risks by 0.5. These assumed effects are game mechanics, not evidence of the effectiveness or availability of a real program. Job loss itself does not deduct care points.</p>
+    </details>
+    <details><summary>Arsenal, dose boundaries & primary references</summary>
+      <p>The full arsenal contains 17 drug entries and an active reassessment/rehabilitation strategy. Rituximab is off-label for MS in the referenced settings. Fenebrutinib stays in a research-only exercise; no approved MS label has been verified. Reference jurisdictions are US/EU and do not establish Indian approval or availability.</p>
+      <p>Regimen dossiers preserve starting dose, maintenance, infusion timing, treatment duration and linked labels. Dose summaries are incomplete learning references. Different formulations and alternative doses are not automatically equivalent to the regimen in the probability source. In particular, the model uses glatiramer 40 mg three times weekly, teriflunomide 14 mg daily and SC interferon beta-1a 44 micrograms three times weekly. Diroximel fumarate efficacy is an explicit DMF bridge.</p>
+      <div id="all-sources"></div>
+    </details>
+  </footer>
+  <script src="data.js"></script>
+  <script src="patients.js"></script>
+  <script src="evidence.js"></script>
+  <script src="simulation.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
